@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: hello-world-app
+  name: hello-world-app-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hello-world-app
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: hello-world-app
+    spec:
+      containers:
+        - image: sdubey321/hello-world-app:v1.0.0
+          name: react-hello-world
+          ports:
+            - containerPort: 8080
